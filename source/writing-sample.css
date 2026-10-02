@@ -1,0 +1,55 @@
+/* Layout for the two writing samples (US Letter). */
+
+@page {
+  size: 8.5in 11in;
+  margin: 1in 1.4in 1.05in 1.5in;
+  background: var(--paper);
+  @bottom-left {
+    font-family: "EB Garamond", serif; font-size: 8.5pt; letter-spacing: 0.06em;
+    color: #8a8279; vertical-align: top; padding-top: 0.32in;
+  }
+  @bottom-right {
+    margin-right: 0.1in;
+    content: counter(page);
+    font-family: "EB Garamond", serif; font-size: 9.5pt; color: #5d5750;
+    vertical-align: top; padding-top: 0.3in;
+  }
+}
+
+body { font-size: 12.25pt; line-height: 1.52; padding-right: 0.1in; }
+
+.sample-head { margin-bottom: 0.42in; }
+.eyebrow {
+  font-size: 8.5pt; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--blue); font-weight: 500;
+}
+.eyebrow .sep { color: var(--rule); margin: 0 0.4em; }
+h1 {
+  font-family: var(--display); font-weight: 500; font-size: 34pt; line-height: 1.05;
+  letter-spacing: -0.005em; margin: 0.2in 0 0.08in;
+}
+.sub { font-size: 13.5pt; font-style: italic; color: var(--ink-soft); }
+.sub em { font-style: italic; }
+.sub .sep { font-style: normal; margin: 0 0.25em; color: var(--rule); }
+.about {
+  margin-top: 0.28in; padding-top: 0.14in; border-top: 0.6pt solid var(--rule);
+  font-size: 9.5pt; line-height: 1.5; color: var(--ink-soft);
+}
+.about p { margin: 0 0 0.06in; }
+.disclaimer { font-style: italic; color: var(--ink-soft); }
+
+.text { text-align: justify; hyphens: manual; orphans: 2; widows: 2; }
+.text p { margin: 0; text-indent: 1.4em; }
+.text p.first { text-indent: 0; }
+.text h2 {
+  font-family: var(--text); font-weight: 500; font-size: 10pt; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--blue);
+  margin: 0.3in 0 0.1in; break-after: avoid;
+}
+.text h2 + p { break-before: avoid; }
+.break { margin: 0.2in 0 0.19in; height: 1.2pt; break-after: avoid; text-align: center; line-height: 0; }
+.break span { display: inline-block; width: 0.32in; height: 1.2pt; background: var(--blue); }
+
+.end { margin-top: 0.4in; font-size: 9.5pt; color: var(--ink-soft); break-inside: avoid; }
+.end p { margin: 0 0 0.05in; }
+.endmark { width: 0.45in; height: 1.6pt; background: var(--blue); margin-bottom: 0.16in; }

@@ -1,0 +1,29 @@
+<svg width="600" height="900" class="cover-art" viewBox="0 0 600 900" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cover: The Shape of Ordinary Days by Alex Morgan">
+  <rect width="600" height="900" fill="#e9e0d1"/>
+  <!-- window light falling on the wall -->
+  <path d="M300,412 L556,340 L556,640 L300,640 Z" fill="#f7efde"/>
+  <path d="M424,376 L434,373 L434,640 L424,640 Z" fill="#e9e0d1" opacity="0.85"/>
+  <path d="M300,522 L556,463 L556,473 L300,532 Z" fill="#e9e0d1" opacity="0.85"/>
+  <clipPath id="cover-lightclip"><path d="M300,412 L556,340 L556,640 L300,640 Z"/></clipPath>
+  <g clip-path="url(#cover-lightclip)">
+    <g><rect x="418" y="571.2" width="31.200000000000003" height="40.419999999999995" rx="16.976399999999998" fill="none" stroke="#ebdfc8" stroke-width="7.41"/><path d="M346,554 H424 V632 Q424,640 416,640 H354 Q346,640 346,632 Z" fill="#ebdfc8" stroke="none" stroke-width="0"/></g>
+    <g><rect x="538" y="571.2" width="31.200000000000003" height="40.419999999999995" rx="16.976399999999998" fill="none" stroke="#ebdfc8" stroke-width="7.41"/><path d="M466,554 H544 V632 Q544,640 536,640 H474 Q466,640 466,632 Z" fill="#ebdfc8" stroke="none" stroke-width="0"/></g>
+  </g>
+  <!-- the lower shelf and the cabinet below -->
+  <rect x="0" y="652" width="600" height="248" fill="#d8ccb7"/>
+  <rect x="0" y="640" width="600" height="13" fill="#3d352d"/>
+  <mask id="cover-chip"><rect x="306" y="534" width="156" height="126" fill="#fff"/><path d="M340.82000000000005,553 L348.62,553 L345.89000000000004,558.73 L343.16,556.58 Z" fill="#000"/></mask><g mask="url(#cover-chip)"><rect x="398" y="571.2" width="31.200000000000003" height="40.419999999999995" rx="16.976399999999998" fill="none" stroke="#46657a" stroke-width="7.41"/><path d="M326,554 H404 V632 Q404,640 396,640 H334 Q326,640 326,632 Z" fill="#46657a" stroke="none" stroke-width="0"/></g>
+  <g><rect x="518" y="571.2" width="31.200000000000003" height="40.419999999999995" rx="16.976399999999998" fill="none" stroke="#2a2723" stroke-width="2.6"/><path d="M446,554 H524 V632 Q524,640 516,640 H454 Q446,640 446,632 Z" fill="#fbf8f2" stroke="#2a2723" stroke-width="2.6"/></g>
+  <!-- type -->
+  <g font-family="Cormorant Garamond, EB Garamond, serif" fill="#2a2723">
+    <text x="58" y="178" font-size="92" font-weight="500" letter-spacing="-0.5">The Shape</text>
+    <text x="58" y="270" font-size="92" font-weight="500" letter-spacing="-0.5"><tspan font-style="italic" font-weight="400">of</tspan> Ordinary</text>
+    <text x="58" y="362" font-size="92" font-weight="500" letter-spacing="-0.5">Days</text>
+  </g>
+  <rect x="61" y="404" width="44" height="2.4" fill="#46657a"/>
+  <g font-family="EB Garamond, serif" font-style="italic" font-size="22" fill="#2a2723">
+    <text x="60" y="446">A Fictional Memoir</text>
+    <text x="60" y="474">of Recovery and Return</text>
+  </g>
+  <text x="60" y="792" font-family="EB Garamond, serif" font-weight="500" font-size="25" letter-spacing="7" fill="#2a2723">ALEX MORGAN</text>
+</svg>

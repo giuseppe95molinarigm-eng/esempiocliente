@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>The Shape of Ordinary Days — Cover and Interior Design Sample</title>
+<link rel="stylesheet" href="../shared.css">
+<style>
+  /* Trim 6 × 9 in = 576 × 864 CSS px. Baseline grid: 20 px (15 pt). */
+  @page { size: 6in 9in; margin: 0; }
+  :root { --lh: 20px; }
+  body { background: var(--paper); }
+  .page {
+    position: relative; width: 576px; height: 864px; overflow: hidden;
+    background: var(--paper); break-after: page;
+  }
+  .page:last-child { break-after: auto; }
+
+  /* ---- cover */
+  .cover-page { background: var(--oat); }
+  .cover-page svg { display: block; width: 576px; height: 864px; }
+
+  /* ---- shared interior furniture */
+  .rh {
+    position: absolute; top: 40px; height: 14px; line-height: 14px;
+    font-size: 7.75pt; letter-spacing: 0.17em; text-transform: uppercase; color: var(--ink-soft);
+    text-align: center;
+  }
+  .folio {
+    position: absolute; top: 796px; font-size: 9pt; line-height: 14px; color: var(--ink-soft);
+    text-align: center; font-variant-numeric: oldstyle-nums;
+  }
+  .recto .rh, .recto .folio, .recto .block { left: 84px; width: 432px; }
+  .verso .rh, .verso .folio, .verso .block { left: 60px; width: 432px; }
+
+  .block {
+    position: absolute; top: 80px; height: calc(34 * var(--lh));
+    font-size: 11pt; line-height: var(--lh); text-align: justify; hyphens: manual;
+  }
+  .block p { margin: 0; text-indent: 1.35em; }
+  .block p.first, .block p.cont { text-indent: 0; }
+  .block p.split-head { text-align-last: justify; }
+  .block .break {
+    height: calc(2 * var(--lh)); display: flex; align-items: center; justify-content: center;
+  }
+  .block .break span { width: 24px; height: 1.1pt; background: var(--blue); }
+  .lead-in { font-variant-caps: all-small-caps; letter-spacing: 0.06em; }
+
+  /* ---- title page */
+  .title-page .inner { position: absolute; left: 84px; width: 432px; top: 0; height: 864px; text-align: center; }
+  .title-page h1 {
+    position: absolute; top: 196px; width: 100%; margin: 0;
+    font-family: var(--display); font-weight: 500; font-size: 37pt; line-height: 1.04; letter-spacing: -0.005em;
+  }
+  .title-page h1 em { font-weight: 400; }
+  .title-page .subtitle { position: absolute; top: 340px; width: 100%; font-style: italic; font-size: 12.5pt; color: var(--ink-soft); }
+  .title-page .rule { position: absolute; top: 318px; left: 50%; width: 34px; margin-left: -17px; height: 1.4pt; background: var(--blue); }
+  .title-page .author { position: absolute; top: 424px; width: 100%; font-size: 11pt; letter-spacing: 0.3em; padding-left: 0.3em; font-weight: 500; }
+  .title-page .orn { position: absolute; top: 676px; width: 100%; }
+  .title-page .imprint { position: absolute; top: 730px; width: 100%; font-size: 7.75pt; letter-spacing: 0.24em; padding-left: 0.24em; text-transform: uppercase; color: var(--ink-soft); }
+
+  /* ---- credits page */
+  .credits .inner {
+    position: absolute; left: 60px; width: 432px; bottom: 104px;
+    font-size: 8.25pt; line-height: 1.5; color: var(--ink-soft);
+  }
+  .credits p { margin: 0 0 9px; }
+  .credits .book { color: var(--ink); font-size: 9pt; }
+  .credits .book em { font-style: italic; }
+  .credits .demo {
+    margin-top: 16px; padding-top: 11px; border-top: 0.6pt solid var(--rule);
+    font-style: italic; color: var(--ink);
+  }
+
+  /* ---- chapter opening */
+  .chapter-head { position: absolute; left: 84px; width: 432px; top: 0; text-align: center; }
+  .chapter-head .num {
+    position: absolute; top: 120px; width: 100%; font-size: 8.5pt; letter-spacing: 0.3em; padding-left: 0.3em;
+    text-transform: uppercase; color: var(--blue); font-weight: 500;
+  }
+  .chapter-head .orn { position: absolute; top: 150px; width: 100%; }
+  .chapter-head h2 {
+    position: absolute; top: 200px; width: 100%; margin: 0;
+    font-family: var(--display); font-weight: 500; font-size: 27pt; line-height: 1.1;
+  }
+  .chapter-page .block { top: calc(80px + 12 * var(--lh)); height: calc(22 * var(--lh)); }
+
+  /* ---- design notes */
+  .notes { padding: 62px 56px 0 60px; font-size: 9.2pt; line-height: 1.47; }
+  .notes .eyebrow { font-size: 7.5pt; letter-spacing: 0.2em; text-transform: uppercase; color: var(--blue); font-weight: 500; }
+  .notes h3 { font-family: var(--display); font-weight: 500; font-size: 21pt; line-height: 1.1; margin: 7px 0 12px; }
+  .notes h4 { font-size: 7.5pt; letter-spacing: 0.17em; text-transform: uppercase; margin: 15px 0 4px; font-weight: 600; color: var(--ink); }
+  .notes p { margin: 0 0 4px; }
+  .notes .row { display: flex; gap: 22px; margin-top: 24px; align-items: flex-start; }
+  .notes .thumbs { display: flex; gap: 12px; align-items: flex-end; }
+  .notes .thumbs svg { display: block; box-shadow: 0 0 0 0.5pt rgba(0,0,0,0.12); }
+  .notes .cap { font-size: 7pt; color: var(--ink-soft); margin-top: 4px; text-align: center; }
+  .notes table { border-collapse: collapse; font-size: 7.9pt; line-height: 1.35; }
+  .notes td { padding: 2px 0; vertical-align: top; border-bottom: 0.5pt solid var(--rule); }
+  .notes td:first-child { color: var(--ink-soft); padding-right: 10px; white-space: nowrap; }
+  .swatches { display: flex; gap: 5px; margin-top: 6px; }
+  .swatches span { width: 22px; height: 22px; border-radius: 2px; box-shadow: inset 0 0 0 0.5pt rgba(0,0,0,0.15); }
+  .notes .foot {
+    position: absolute; left: 60px; right: 56px; bottom: 44px;
+    padding-top: 9px; border-top: 0.6pt solid var(--rule);
+    font-size: 7.6pt; color: var(--ink-soft); display: flex; justify-content: space-between;
+  }
+  .notes .foot em { color: var(--ink); }
+</style>
+</head>
+<body>
+
+<!-- 1 · Front cover -->
+<section class="page cover-page"><svg class="cover-art" viewBox="0 0 600 900" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cover: The Shape of Ordinary Days by Alex Morgan">
+  <rect width="600" height="900" fill="#e9e0d1"/>
+  <!-- window light falling on the wall -->
+  <path d="M300,412 L556,340 L556,640 L300,640 Z" fill="#f7efde"/>
+  <path d="M424,376 L434,373 L434,640 L424,640 Z" fill="#e9e0d1" opacity="0.85"/>
+  <path d="M300,522 L556,463 L556,473 L300,532 Z" fill="#e9e0d1" opacity="0.85"/>
+  <clipPath id="cover-lightclip"><path d="M300,412 L556,340 L556,640 L300,640 Z"/></clipPath>
+  <g clip-path="url(#cover-lightclip)">
+    <g><rect x="418" y="571.2" width="31.200000000000003" height="40.419999999999995" rx="16.976399999999998" fill="none" stroke="#ebdfc8" stroke-width="7.41"/><path d="M346,554 H424 V632 Q424,640 416,640 H354 Q346,640 346,632 Z" fill="#ebdfc8" stroke="none" stroke-width="0"/></g>
+    <g><rect x="538" y="571.2" width="31.200000000000003" height="40.419999999999995" rx="16.976399999999998" fill="none" stroke="#ebdfc8" stroke-width="7.41"/><path d="M466,554 H544 V632 Q544,640 536,640 H474 Q466,640 466,632 Z" fill="#ebdfc8" stroke="none" stroke-width="0"/></g>
+  </g>
+  <!-- the lower shelf and the cabinet below -->
+  <rect x="0" y="652" width="600" height="248" fill="#d8ccb7"/>
+  <rect x="0" y="640" width="600" height="13" fill="#3d352d"/>
+  <mask id="cover-chip"><rect x="306" y="534" width="156" height="126" fill="#fff"/><path d="M340.82000000000005,553 L348.62,553 L345.89000000000004,558.73 L343.16,556.58 Z" fill="#000"/></mask><g mask="url(#cover-chip)"><rect x="398" y="571.2" width="31.200000000000003" height="40.419999999999995" rx="16.976399999999998" fill="none" stroke="#46657a" stroke-width="7.41"/><path d="M326,554 H404 V632 Q404,640 396,640 H334 Q326,640 326,632 Z" fill="#46657a" stroke="none" stroke-width="0"/></g>
+  <g><rect x="518" y="571.2" width="31.200000000000003" height="40.419999999999995" rx="16.976399999999998" fill="none" stroke="#2a2723" stroke-width="2.6"/><path d="M446,554 H524 V632 Q524,640 516,640 H454 Q446,640 446,632 Z" fill="#fbf8f2" stroke="#2a2723" stroke-width="2.6"/></g>
+  <!-- type -->
+  <g font-family="Cormorant Garamond, EB Garamond, serif" fill="#2a2723">
+    <text x="58" y="178" font-size="92" font-weight="500" letter-spacing="-0.5">The Shape</text>
+    <text x="58" y="270" font-size="92" font-weight="500" letter-spacing="-0.5"><tspan font-style="italic" font-weight="400">of</tspan> Ordinary</text>
+    <text x="58" y="362" font-size="92" font-weight="500" letter-spacing="-0.5">Days</text>
+  </g>
+  <rect x="61" y="404" width="44" height="2.4" fill="#46657a"/>
+  <g font-family="EB Garamond, serif" font-style="italic" font-size="22" fill="#2a2723">
+    <text x="60" y="446">A Fictional Memoir</text>
+    <text x="60" y="474">of Recovery and Return</text>
+  </g>
+  <text x="60" y="792" font-family="EB Garamond, serif" font-weight="500" font-size="25" letter-spacing="7" fill="#2a2723">ALEX MORGAN</text>
+</svg></section>
+
+<!-- 2 · Title page (recto i) -->
+<section class="page recto title-page">
+  <div class="inner">
+    <h1>The Shape<br><em>of</em> Ordinary Days</h1>
+    <div class="rule"></div>
+    <div class="subtitle">A Fictional Memoir of Recovery and Return</div>
+    <div class="author">ALEX MORGAN</div>
+    <div class="orn"><svg class="ornament" viewBox="0 0 260 100" width="92" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <mask id="ot-chip"><rect x="10" y="-18" width="156" height="126" fill="#fff"/><path d="M44.82,1 L52.62,1 L49.89,6.73 L47.16,4.58 Z" fill="#000"/></mask><g mask="url(#ot-chip)"><rect x="102" y="19.2" width="31.200000000000003" height="40.419999999999995" rx="16.976399999999998" fill="none" stroke="#46657a" stroke-width="7.41"/><path d="M30,2 H108 V80 Q108,88 100,88 H38 Q30,88 30,80 Z" fill="#46657a" stroke="none" stroke-width="0"/></g>
+  <g><rect x="214" y="19.2" width="31.200000000000003" height="40.419999999999995" rx="16.976399999999998" fill="none" stroke="#2a2723" stroke-width="3.2"/><path d="M142,2 H220 V80 Q220,88 212,88 H150 Q142,88 142,80 Z" fill="#fbf8f2" stroke="#2a2723" stroke-width="3.2"/></g>
+  <rect x="0" y="88" width="260" height="7" fill="#3d352d"/>
+</svg></div>
+    <div class="imprint">Élite Publishing</div>
+  </div>
+</section>
+
+<!-- 3 · Credits (verso ii) -->
+<section class="page verso credits">
+  <div class="inner">
+    <p class="book"><em>The Shape of Ordinary Days: A Fictional Memoir of Recovery and Return</em></p>
+    <p>Copyright © 2026 Élite Publishing. All rights reserved.</p>
+    <p>“Alex Morgan” is a demonstration pseudonym created for this sample. It does not refer to any real author.</p>
+    <p>This is a work of fiction. Names, characters, places and events are the product of imagination. Any resemblance to actual persons, living or dead, or to actual events is coincidental.</p>
+    <p>Set in EB Garamond and Cormorant Garamond, both released under the SIL Open Font License. Cover illustration and interior design by Élite Publishing.</p>
+    <p>Demonstration edition. Not for sale.</p>
+    <p class="demo">Original demonstration sample created by Élite Publishing. All characters and events are fictional.</p>
+  </div>
+</section>
+
+<!-- 4 · Chapter opening (recto 1) -->
+<section class="page recto chapter-page" data-flow="22">
+  <div class="chapter-head">
+    <div class="num">Chapter One</div>
+    <div class="orn"><svg class="ornament" viewBox="0 0 260 100" width="66" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <mask id="oc-chip"><rect x="10" y="-18" width="156" height="126" fill="#fff"/><path d="M44.82,1 L52.62,1 L49.89,6.73 L47.16,4.58 Z" fill="#000"/></mask><g mask="url(#oc-chip)"><rect x="102" y="19.2" width="31.200000000000003" height="40.419999999999995" rx="16.976399999999998" fill="none" stroke="#46657a" stroke-width="7.41"/><path d="M30,2 H108 V80 Q108,88 100,88 H38 Q30,88 30,80 Z" fill="#46657a" stroke="none" stroke-width="0"/></g>
+  <g><rect x="214" y="19.2" width="31.200000000000003" height="40.419999999999995" rx="16.976399999999998" fill="none" stroke="#2a2723" stroke-width="3.2"/><path d="M142,2 H220 V80 Q220,88 212,88 H150 Q142,88 142,80 Z" fill="#fbf8f2" stroke="#2a2723" stroke-width="3.2"/></g>
+  <rect x="0" y="88" width="260" height="7" fill="#3d352d"/>
+</svg></div>
+    <h2>The Lower Shelf</h2>
+  </div>
+  <div class="block"></div>
+  <div class="folio">1</div>
+</section>
+
+<!-- 5–7 · Text pages -->
+<section class="page verso" data-flow="34">
+  <div class="rh">The Shape of Ordinary Days</div>
+  <div class="block"></div>
+  <div class="folio">2</div>
+</section>
+<section class="page recto" data-flow="34">
+  <div class="rh">The Lower Shelf</div>
+  <div class="block"></div>
+  <div class="folio">3</div>
+</section>
+<section class="page verso" data-flow="34">
+  <div class="rh">The Shape of Ordinary Days</div>
+  <div class="block"></div>
+  <div class="folio">4</div>
+</section>
+
+<!-- 8 · Design notes -->
+<section class="page notes">
+  <div class="eyebrow">Cover and interior design sample</div>
+  <h3>Design notes</h3>
+
+  <h4>The cover</h4>
+  <p>The cover is built from the book’s own material rather than stock imagery. Two mugs stand on a low shelf, handles turned the same way, in the slanted light of a kitchen window: details taken from the first chapter. There are no hospital images or symbols of transformation. The story is about returning to ordinary life, so the cover shows ordinary life, closely observed.</p>
+
+  <h4>Type and color</h4>
+  <p>The title is set in Cormorant Garamond, a display serif with long, calm strokes; the text is EB Garamond, a classic book face made for reading at length. The palette is limited to warm oat, window light, ink and one muted blue, the narrator’s chipped mug, which returns inside the book as the only accent.</p>
+
+  <h4>The interior</h4>
+  <p>Pages are 6 × 9 inches with mirrored margins and a deeper foot. Text is justified on a 15-point baseline with controlled hyphenation, and pages are balanced to avoid widows and orphans. Running heads carry the book title on left-hand pages and the chapter title on right-hand pages, and are dropped on display pages. Chapters open low on the page with small capitals and a reduced shelf motif, so the reader enters each one quietly, as the story does.</p>
+
+  <div class="row">
+    <div>
+      <div class="thumbs">
+        <div><svg width="120" height="180" viewBox="0 0 600 900"><svg class="cover-art" viewBox="0 0 600 900" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cover: The Shape of Ordinary Days by Alex Morgan">
+  <rect width="600" height="900" fill="#e9e0d1"/>
+  <!-- window light falling on the wall -->
+  <path d="M300,412 L556,340 L556,640 L300,640 Z" fill="#f7efde"/>
+  <path d="M424,376 L434,373 L434,640 L424,640 Z" fill="#e9e0d1" opacity="0.85"/>
+  <path d="M300,522 L556,463 L556,473 L300,532 Z" fill="#e9e0d1" opacity="0.85"/>
+  <clipPath id="th1-lightclip"><path d="M300,412 L556,340 L556,640 L300,640 Z"/></clipPath>
+  <g clip-path="url(#th1-lightclip)">
+    <g><rect x="418" y="571.2" width="31.200000000000003" height="40.419999999999995" rx="16.976399999999998" fill="none" stroke="#ebdfc8" stroke-width="7.41"/><path d="M346,554 H424 V632 Q424,640 416,640 H354 Q346,640 346,632 Z" fill="#ebdfc8" stroke="none" stroke-width="0"/></g>
+    <g><rect x="538" y="571.2" width="31.200000000000003" height="40.419999999999995" rx="16.976399999999998" fill="none" stroke="#ebdfc8" stroke-width="7.41"/><path d="M466,554 H544 V632 Q544,640 536,640 H474 Q466,640 466,632 Z" fill="#ebdfc8" stroke="none" stroke-width="0"/></g>
+  </g>
+  <!-- the lower shelf and the cabinet below -->
+  <rect x="0" y="652" width="600" height="248" fill="#d8ccb7"/>
+  <rect x="0" y="640" width="600" height="13" fill="#3d352d"/>
+  <mask id="th1-chip"><rect x="306" y="534" width="156" height="126" fill="#fff"/><path d="M340.82000000000005,553 L348.62,553 L345.89000000000004,558.73 L343.16,556.58 Z" fill="#000"/></mask><g mask="url(#th1-chip)"><rect x="398" y="571.2" width="31.200000000000003" height="40.419999999999995" rx="16.976399999999998" fill="none" stroke="#46657a" stroke-width="7.41"/><path d="M326,554 H404 V632 Q404,640 396,640 H334 Q326,640 326,632 Z" fill="#46657a" stroke="none" stroke-width="0"/></g>
+  <g><rect x="518" y="571.2" width="31.200000000000003" height="40.419999999999995" rx="16.976399999999998" fill="none" stroke="#2a2723" stroke-width="2.6"/><path d="M446,554 H524 V632 Q524,640 516,640 H454 Q446,640 446,632 Z" fill="#fbf8f2" stroke="#2a2723" stroke-width="2.6"/></g>
+  <!-- type -->
+  <g font-family="Cormorant Garamond, EB Garamond, serif" fill="#2a2723">
+    <text x="58" y="178" font-size="92" font-weight="500" letter-spacing="-0.5">The Shape</text>
+    <text x="58" y="270" font-size="92" font-weight="500" letter-spacing="-0.5"><tspan font-style="italic" font-weight="400">of</tspan> Ordinary</text>
+    <text x="58" y="362" font-size="92" font-weight="500" letter-spacing="-0.5">Days</text>
+  </g>
+  <rect x="61" y="404" width="44" height="2.4" fill="#46657a"/>
+  <g font-family="EB Garamond, serif" font-style="italic" font-size="22" fill="#2a2723">
+    <text x="60" y="446">A Fictional Memoir</text>
+    <text x="60" y="474">of Recovery and Return</text>
+  </g>
+  <text x="60" y="792" font-family="EB Garamond, serif" font-weight="500" font-size="25" letter-spacing="7" fill="#2a2723">ALEX MORGAN</text>
+</svg></svg><div class="cap">1.25 in wide</div></div>
+        <div><svg width="58" height="87" viewBox="0 0 600 900"><svg class="cover-art" viewBox="0 0 600 900" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cover: The Shape of Ordinary Days by Alex Morgan">
+  <rect width="600" height="900" fill="#e9e0d1"/>
+  <!-- window light falling on the wall -->
+  <path d="M300,412 L556,340 L556,640 L300,640 Z" fill="#f7efde"/>
+  <path d="M424,376 L434,373 L434,640 L424,640 Z" fill="#e9e0d1" opacity="0.85"/>
+  <path d="M300,522 L556,463 L556,473 L300,532 Z" fill="#e9e0d1" opacity="0.85"/>
+  <clipPath id="th2-lightclip"><path d="M300,412 L556,340 L556,640 L300,640 Z"/></clipPath>
+  <g clip-path="url(#th2-lightclip)">
+    <g><rect x="418" y="571.2" width="31.200000000000003" height="40.419999999999995" rx="16.976399999999998" fill="none" stroke="#ebdfc8" stroke-width="7.41"/><path d="M346,554 H424 V632 Q424,640 416,640 H354 Q346,640 346,632 Z" fill="#ebdfc8" stroke="none" stroke-width="0"/></g>
+    <g><rect x="538" y="571.2" width="31.200000000000003" height="40.419999999999995" rx="16.976399999999998" fill="none" stroke="#ebdfc8" stroke-width="7.41"/><path d="M466,554 H544 V632 Q544,640 536,640 H474 Q466,640 466,632 Z" fill="#ebdfc8" stroke="none" stroke-width="0"/></g>
+  </g>
+  <!-- the lower shelf and the cabinet below -->
+  <rect x="0" y="652" width="600" height="248" fill="#d8ccb7"/>
+  <rect x="0" y="640" width="600" height="13" fill="#3d352d"/>
+  <mask id="th2-chip"><rect x="306" y="534" width="156" height="126" fill="#fff"/><path d="M340.82000000000005,553 L348.62,553 L345.89000000000004,558.73 L343.16,556.58 Z" fill="#000"/></mask><g mask="url(#th2-chip)"><rect x="398" y="571.2" width="31.200000000000003" height="40.419999999999995" rx="16.976399999999998" fill="none" stroke="#46657a" stroke-width="7.41"/><path d="M326,554 H404 V632 Q404,640 396,640 H334 Q326,640 326,632 Z" fill="#46657a" stroke="none" stroke-width="0"/></g>
+  <g><rect x="518" y="571.2" width="31.200000000000003" height="40.419999999999995" rx="16.976399999999998" fill="none" stroke="#2a2723" stroke-width="2.6"/><path d="M446,554 H524 V632 Q524,640 516,640 H454 Q446,640 446,632 Z" fill="#fbf8f2" stroke="#2a2723" stroke-width="2.6"/></g>
+  <!-- type -->
+  <g font-family="Cormorant Garamond, EB Garamond, serif" fill="#2a2723">
+    <text x="58" y="178" font-size="92" font-weight="500" letter-spacing="-0.5">The Shape</text>
+    <text x="58" y="270" font-size="92" font-weight="500" letter-spacing="-0.5"><tspan font-style="italic" font-weight="400">of</tspan> Ordinary</text>
+    <text x="58" y="362" font-size="92" font-weight="500" letter-spacing="-0.5">Days</text>
+  </g>
+  <rect x="61" y="404" width="44" height="2.4" fill="#46657a"/>
+  <g font-family="EB Garamond, serif" font-style="italic" font-size="22" fill="#2a2723">
+    <text x="60" y="446">A Fictional Memoir</text>
+    <text x="60" y="474">of Recovery and Return</text>
+  </g>
+  <text x="60" y="792" font-family="EB Garamond, serif" font-weight="500" font-size="25" letter-spacing="7" fill="#2a2723">ALEX MORGAN</text>
+</svg></svg><div class="cap">0.6 in</div></div>
+      </div>
+      <div class="cap" style="text-align:left;margin-top:6px;max-width:190px">The title holds the top third of the cover in large, high-contrast type, so it stays legible as a small thumbnail.</div>
+    </div>
+    <div style="flex:1">
+      <table>
+        <tr><td>Trim size</td><td>6 × 9 in, portrait</td></tr>
+        <tr><td>Text</td><td>EB Garamond 11/15 pt, justified</td></tr>
+        <tr><td>Display</td><td>Cormorant Garamond</td></tr>
+        <tr><td>Margins</td><td>Inside 0.875 in, outside 0.625 in, top 0.83 in, foot 1.08 in</td></tr>
+        <tr><td>Folios</td><td>Foot, centered; omitted on display pages</td></tr>
+      </table>
+      <div class="swatches" aria-label="Palette">
+        <span style="background:#e9e0d1"></span><span style="background:#f7efde"></span><span style="background:#d8ccb7"></span><span style="background:#46657a"></span><span style="background:#2a2723"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot"><em>Original demonstration sample created by Élite Publishing. All characters and events are fictional.</em><span>Élite Publishing</span></div>
+</section>
+
+<script>
+// Flow the chapter text into the fixed text blocks, splitting paragraphs at word boundaries
+// with widow and orphan control (min. 2 lines either side of a page break).
+window.__paginating = true;
+const ITEMS = [{"t":"p","cls":"first","html":"<span class=\"lead-in\">The key stuck</span> the way it always had, half a turn and then noth­ing, and Nell said, “Let me,” and I said, “I’ve got it,” and for a while we stood on the front step with my hand on the key and hers held an inch above it, not quite touching."},{"t":"p","cls":"","html":"The trick is to lift the door by the handle as you turn. I had known that for eleven years. It took me three tries to re­mem­ber it."},{"t":"p","cls":"","html":"Inside, the first thing was the smell. Not a bad one—ra­di­a­tor dust, the cedar block in the coat closet, some­thing faint­ly like or­anges—just the smell of my own house, which I had ap­par­ent­ly never no­ticed while I was living in it. I stood in the hall and breathed it in and felt, ab­surd­ly, like a guest."},{"t":"p","cls":"","html":"“Do you want to sit down?” Nell said."},{"t":"p","cls":"","html":"“I’ve been sit­ting down since February.”"},{"t":"p","cls":"","html":"“That isn’t an answer.”"},{"t":"p","cls":"","html":"It wasn’t. There was a bench by the door that hadn’t been there before, a low pine thing with a cush­ion tied on at the cor­ners, placed ex­act­ly where I would stand to take off my shoes. I looked at it. Nell watched me look at it."},{"t":"p","cls":"","html":"“It was forty dol­lars,” she said. “You’re al­lowed to hate it.”"},{"t":"p","cls":"","html":"“I don’t hate it.”"},{"t":"p","cls":"","html":"I sat on it. My shoes were the ones I’d been wear­ing the day I left, and some­body—Nell—had cleaned them. The laces were new. I undid them slowly, partly be­cause my hands were slow and partly be­cause I didn’t want to stand up again just yet in front of her, and she knew that, and went into the kitchen to make a noise with the kettle so I could do it with­out an audience."},{"t":"p","cls":"","html":"That is the kind of sister she is. It is also the kind of sister she is that she called out, “Take your time!” from the kitchen, which undid most of the good."},{"t":"break"},{"t":"p","cls":"first","html":"<span class=\"lead-in\">The house had</span> been kept beau­ti­ful­ly, and it was not quite mine."},{"t":"p","cls":"","html":"The mail was stacked on the hall table in four bun­dles, one for each month, each with a rubber band and a yellow sticky note: <em>February</em>, <em>March</em>, <em>April</em>, <em>May</em>. The plant on the win­dowsill—a pothos I had been fail­ing to kill for years—had been wa­tered so faith­ful­ly that it had put out a new vine and trained it along the cur­tain rail. The fridge held foods I don’t buy: oat milk, a bag of washed spinach, little pots of yogurt with names like <em>Orchard</em>. The cal­en­dar on the kitchen wall still said February. Nell hadn’t turned it. I didn’t know whether that was tact or su­per­sti­tion, and I didn’t turn it either."},{"t":"p","cls":"","html":"“I’ll stay till the end of the month,” Nell said. She had her back to me, pour­ing water. “Work’s fine about it. Graham’s fine about it.”"},{"t":"p","cls":"","html":"“You don’t have to.”"},{"t":"p","cls":"","html":"“I know I don’t have to.”"},{"t":"p","cls":"","html":"“I just mean you’ve already—”"},{"t":"p","cls":"","html":"“I know what you mean.”"},{"t":"p","cls":"","html":"What I meant, I think, was two things at once. I meant: go home, back to your own kitchen and the hus­band you’ve been talk­ing to on speak­er­phone since winter, so that I can find out what I’m like when nobody is watch­ing. And I meant: please don’t. I couldn’t have said which was louder. She put a cup of tea in front of me, in a white mug she must have brought from home, and sat down across the table with hers, and we drank them, and nei­ther of us said any­thing else about it."},{"t":"break"},{"t":"p","cls":"first","html":"<span class=\"lead-in\">My friend Theo</span> called at four."},{"t":"p","cls":"","html":"“You’re home,” he said. “How is it? How are you feeling?”"},{"t":"p","cls":"","html":"“Good,” I said. “Really good. It’s strange, but a good strange. It’s very quiet.”"},{"t":"p","cls":"","html":"All of that was true, the way a post­card is true. I was sit­ting on the bottom stair be­cause it was the near­est place to sit when the phone rang, and while we talked I had been look­ing at the other thir­teen and think­ing about them in a way I had never thought about stairs. Not with fear. More the way you might look at a long sen­tence in a lan­guage you used to speak well."},{"t":"p","cls":"","html":"“You sound tired,” Theo said."},{"t":"p","cls":"","html":"“I’m on the stairs,” I said, as if that ex­plained it, and he laughed, and I laughed, and he told me about a man at his office who had start­ed bring­ing a stand­ing desk to meet­ings, and I said all the right things in the right places. When we hung up I stayed where I was. Then I went up, one hand on the rail, and at the top I sat down on the land­ing carpet, which is not a thing adults do in their own homes, and waited until I was ready for what­ev­er came next."},{"t":"p","cls":"","html":"Nell found me there on her way to the bathroom."},{"t":"p","cls":"","html":"“Oh,” she said."},{"t":"p","cls":"","html":"“I’m just sitting.”"},{"t":"p","cls":"","html":"“Okay.” She stepped over my legs, care­ful­ly, and then stopped and came back and sat down beside me, her knees up near her chin the way she used to sit when we were chil­dren watch­ing tele­vi­sion through the ban­is­ters. She didn’t ask any­thing. After a minute she said, “This carpet is dis­gust­ing, by the way,” and I said, “I know,” and that was, some­how, the best con­ver­sa­tion I’d had all day."},{"t":"break"},{"t":"p","cls":"first","html":"<span class=\"lead-in\">The mugs were</span> the thing that went wrong."},{"t":"p","cls":"","html":"It was early evening. Nell was in the back­yard on the phone to Graham, walk­ing up and down the path, and I de­cid­ed I would make the tea. It seemed a man­age­able am­bi­tion. I filled the kettle—the kettle was where it lived—and switched it on, and then I reached up to the cab­i­net above the toast­er, where my mugs had been since the day I moved in, and opened it, and found cans of soup."},{"t":"p","cls":"","html":"The mugs were in the cab­i­net under the counter, on the lower shelf, lined up in two rows with their han­dles all facing the same way. So were the plates. So were the teapot and the honey and the tea itself. Everything I used every day had come down to waist height, and every­thing I didn’t—the soup, the good glass­es, a fondue set some­one gave me years ago—had gone up."},{"t":"p","cls":"","html":"I stood there with the cab­i­net door open for long enough that the kettle clicked off."},{"t":"p","cls":"","html":"“You moved the mugs,” I said when she came in."},{"t":"p","cls":"","html":"She looked at the open cab­i­net, and then at me, and I watched her decide how to answer."},{"t":"p","cls":"","html":"“I moved the things you use.”"},{"t":"p","cls":"","html":"“I didn’t ask you to.”"},{"t":"p","cls":"","html":"“No,” she said. “You weren’t really in a po­si­tion to be asked.”"},{"t":"p","cls":"","html":"It came out sharp­er than she meant. I saw it reach her own face a second after it reached mine. She put her phone down on the counter."},{"t":"p","cls":"","html":"“Sorry. That was—”"},{"t":"p","cls":"","html":"“It’s fine.”"},{"t":"p","cls":"","html":"“It isn’t. I just thought, the first few weeks, you wouldn’t want to be stretch­ing up for things. I don’t know. I read something.”"},{"t":"p","cls":"","html":"“I can reach a cab­i­net, Nell.”"},{"t":"p","cls":"","html":"“I know you can.”"},{"t":"p","cls":"","html":"Neither of us knew that. That was the prob­lem, un­der­neath the mugs. I didn’t know yet what I could do. For months, people had told me what I could do—sit up, stand, walk to the window, walk to the end of the cor­ri­dor and back—and now I was home, where no one was going to tell me any­thing, and the first thing I’d found was that my sister had al­ready guessed. She had guessed low. She might have been right."},{"t":"p","cls":"","html":"Nell made the tea in the end. I let her."},{"t":"break"},{"t":"p","cls":"first","html":"<span class=\"lead-in\">That night I</span> couldn’t sleep, which every­one had warned me about, though not in a way that helped. The bed was too wide and the room was too dark, and the quiet pressed on my ears. For months I’d had a door that never quite closed, voices pass­ing at all hours, a light in the cor­ri­dor that stayed on. I had hated all of it. Now I lay in my own bed and missed it, and felt ridicu­lous, and then felt some­thing un­der­neath the ridicu­lous­ness that I didn’t want to look at, and got up."},{"t":"p","cls":"","html":"The land­ing light was on. Nell’s door was half open and I could hear her talk­ing, low, the way you talk at mid­night to some­one who is also in bed."},{"t":"p","cls":"","html":"“I don’t know,” she was saying. “Says everything’s fine. Says it all the time.” A pause. “No. No, I’m not going to push. I’m just going to be here, that’s all. I’m going to be in the kitchen.”"},{"t":"p","cls":"","html":"I went back to bed before she could hear the floor­board out­side the bath­room, which has creaked for as long as I’ve lived here and which I have never once re­mem­bered in time."},{"t":"break"},{"t":"p","cls":"first","html":"<span class=\"lead-in\">In the morn­ing</span> I was up first."},{"t":"p","cls":"","html":"In May the light comes into the kitchen at an angle, across the table and up the side of the fridge, and I stood in it for a while in my socks. I didn’t feel better, ex­act­ly. I felt like some­one who had slept four hours and would find out later what kind of day this was going to be. I had been told there would be good days and bad ones, and that the only way to know which was which was to get to the end of them."},{"t":"p","cls":"","html":"I filled the kettle. I opened the cab­i­net under the counter and took two mugs from the lower shelf: my blue one with the chip in the rim, and Nell’s white one from home. I put the milk in hers first, which I have always said is bar­bar­ic. I didn’t put it in mine. Then I turned the cal­en­dar to May."},{"t":"p","cls":"","html":"She came down at half past seven with her hair flat­tened on one side, saw the mug wait­ing at her place, and lifted it and looked at the color of it and said, “Milk first, you animal,” and kissed the top of my head on her way to the toaster."},{"t":"p","cls":"","html":"Afterward I washed both mugs and dried them and stood for a moment with the cab­i­net door open. Then I put them back on the lower shelf, han­dles facing the same way, where I would find them tomorrow."}];
+const LH = 20;
+function make(item, cls) {
+  if (item.t === 'break') {
+    const d = document.createElement('div'); d.className = 'break'; d.innerHTML = '<span></span>'; d.setAttribute('aria-hidden', 'true'); return d;
+  }
+  const p = document.createElement('p');
+  p.className = [item.cls, cls].filter(Boolean).join(' ');
+  p.innerHTML = item.html; return p;
+}
+const lines = el => Math.round(el.getBoundingClientRect().height / LH);
+document.fonts.ready.then(() => {
+  const report = [];
+  const queue = ITEMS.slice();
+  for (const page of document.querySelectorAll('[data-flow]')) {
+    const block = page.querySelector('.block');
+    const cap = +page.dataset.flow * LH;
+    const used = () => block.scrollHeight;
+    while (queue.length) {
+      const item = queue[0];
+      const el = make(item);
+      block.appendChild(el);
+      if (used() <= cap) { queue.shift(); continue; }
+      block.removeChild(el);
+      if (item.t === 'break') break;
+      // split the paragraph
+      const words = item.html.split(' ');
+      const total = (() => { block.appendChild(el); el.classList.add('split-head'); const n = lines(el); block.removeChild(el); return n; })();
+      let lo = 0, hi = words.length - 1, best = 0;
+      const tryK = k => { const h = make({ ...item, html: words.slice(0, k).join(' ') }, 'split-head'); block.appendChild(h); const ok = used() <= cap; const n = lines(h); block.removeChild(h); return { ok, n }; };
+      while (lo <= hi) { const mid = (lo + hi) >> 1; if (mid === 0 || tryK(mid).ok) { best = mid; lo = mid + 1; } else hi = mid - 1; }
+      let headLines = best ? tryK(best).n : 0;
+      if (best && total - headLines < 2) { // widow: give one more line to the next page
+        while (best > 0 && tryK(best).n >= headLines) best--;
+        headLines = best ? tryK(best).n : 0;
+      }
+      if (headLines < 2) break; // orphan: move the whole paragraph
+      block.appendChild(make({ ...item, html: words.slice(0, best).join(' ') }, 'split-head'));
+      queue[0] = { t: 'p', cls: 'cont', html: words.slice(best).join(' ') };
+      break;
+    }
+    report.push({ page: page.querySelector('.folio').textContent, linesUsed: Math.round(used() / LH), capacity: +page.dataset.flow });
+  }
+  window.__report = { pages: report, remainingItems: queue.length, lastShown: (document.querySelectorAll('[data-flow] .block p:last-child')[3] || {}).textContent?.slice(-80) };
+  window.__paginating = false;
+});
+</script>
+</body></html>

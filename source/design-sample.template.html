@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>The Shape of Ordinary Days — Cover and Interior Design Sample</title>
+<link rel="stylesheet" href="../shared.css">
+<style>
+  /* Trim 6 × 9 in = 576 × 864 CSS px. Baseline grid: 20 px (15 pt). */
+  @page { size: 6in 9in; margin: 0; }
+  :root { --lh: 20px; }
+  body { background: var(--paper); }
+  .page {
+    position: relative; width: 576px; height: 864px; overflow: hidden;
+    background: var(--paper); break-after: page;
+  }
+  .page:last-child { break-after: auto; }
+
+  /* ---- cover */
+  .cover-page { background: var(--oat); }
+  .cover-page svg { display: block; width: 576px; height: 864px; }
+
+  /* ---- shared interior furniture */
+  .rh {
+    position: absolute; top: 40px; height: 14px; line-height: 14px;
+    font-size: 7.75pt; letter-spacing: 0.17em; text-transform: uppercase; color: var(--ink-soft);
+    text-align: center;
+  }
+  .folio {
+    position: absolute; top: 796px; font-size: 9pt; line-height: 14px; color: var(--ink-soft);
+    text-align: center; font-variant-numeric: oldstyle-nums;
+  }
+  .recto .rh, .recto .folio, .recto .block { left: 84px; width: 432px; }
+  .verso .rh, .verso .folio, .verso .block { left: 60px; width: 432px; }
+
+  .block {
+    position: absolute; top: 80px; height: calc(34 * var(--lh));
+    font-size: 11pt; line-height: var(--lh); text-align: justify; hyphens: manual;
+  }
+  .block p { margin: 0; text-indent: 1.35em; }
+  .block p.first, .block p.cont { text-indent: 0; }
+  .block p.split-head { text-align-last: justify; }
+  .block .break {
+    height: calc(2 * var(--lh)); display: flex; align-items: center; justify-content: center;
+  }
+  .block .break span { width: 24px; height: 1.1pt; background: var(--blue); }
+  .lead-in { font-variant-caps: all-small-caps; letter-spacing: 0.06em; }
+
+  /* ---- title page */
+  .title-page .inner { position: absolute; left: 84px; width: 432px; top: 0; height: 864px; text-align: center; }
+  .title-page h1 {
+    position: absolute; top: 196px; width: 100%; margin: 0;
+    font-family: var(--display); font-weight: 500; font-size: 37pt; line-height: 1.04; letter-spacing: -0.005em;
+  }
+  .title-page h1 em { font-weight: 400; }
+  .title-page .subtitle { position: absolute; top: 340px; width: 100%; font-style: italic; font-size: 12.5pt; color: var(--ink-soft); }
+  .title-page .rule { position: absolute; top: 318px; left: 50%; width: 34px; margin-left: -17px; height: 1.4pt; background: var(--blue); }
+  .title-page .author { position: absolute; top: 424px; width: 100%; font-size: 11pt; letter-spacing: 0.3em; padding-left: 0.3em; font-weight: 500; }
+  .title-page .orn { position: absolute; top: 676px; width: 100%; }
+  .title-page .imprint { position: absolute; top: 730px; width: 100%; font-size: 7.75pt; letter-spacing: 0.24em; padding-left: 0.24em; text-transform: uppercase; color: var(--ink-soft); }
+
+  /* ---- credits page */
+  .credits .inner {
+    position: absolute; left: 60px; width: 432px; bottom: 104px;
+    font-size: 8.25pt; line-height: 1.5; color: var(--ink-soft);
+  }
+  .credits p { margin: 0 0 9px; }
+  .credits .book { color: var(--ink); font-size: 9pt; }
+  .credits .book em { font-style: italic; }
+  .credits .demo {
+    margin-top: 16px; padding-top: 11px; border-top: 0.6pt solid var(--rule);
+    font-style: italic; color: var(--ink);
+  }
+
+  /* ---- chapter opening */
+  .chapter-head { position: absolute; left: 84px; width: 432px; top: 0; text-align: center; }
+  .chapter-head .num {
+    position: absolute; top: 120px; width: 100%; font-size: 8.5pt; letter-spacing: 0.3em; padding-left: 0.3em;
+    text-transform: uppercase; color: var(--blue); font-weight: 500;
+  }
+  .chapter-head .orn { position: absolute; top: 150px; width: 100%; }
+  .chapter-head h2 {
+    position: absolute; top: 200px; width: 100%; margin: 0;
+    font-family: var(--display); font-weight: 500; font-size: 27pt; line-height: 1.1;
+  }
+  .chapter-page .block { top: calc(80px + 12 * var(--lh)); height: calc(22 * var(--lh)); }
+
+  /* ---- design notes */
+  .notes { padding: 62px 56px 0 60px; font-size: 9.2pt; line-height: 1.47; }
+  .notes .eyebrow { font-size: 7.5pt; letter-spacing: 0.2em; text-transform: uppercase; color: var(--blue); font-weight: 500; }
+  .notes h3 { font-family: var(--display); font-weight: 500; font-size: 21pt; line-height: 1.1; margin: 7px 0 12px; }
+  .notes h4 { font-size: 7.5pt; letter-spacing: 0.17em; text-transform: uppercase; margin: 15px 0 4px; font-weight: 600; color: var(--ink); }
+  .notes p { margin: 0 0 4px; }
+  .notes .row { display: flex; gap: 22px; margin-top: 24px; align-items: flex-start; }
+  .notes .thumbs { display: flex; gap: 12px; align-items: flex-end; }
+  .notes .thumbs svg { display: block; box-shadow: 0 0 0 0.5pt rgba(0,0,0,0.12); }
+  .notes .cap { font-size: 7pt; color: var(--ink-soft); margin-top: 4px; text-align: center; }
+  .notes table { border-collapse: collapse; font-size: 7.9pt; line-height: 1.35; }
+  .notes td { padding: 2px 0; vertical-align: top; border-bottom: 0.5pt solid var(--rule); }
+  .notes td:first-child { color: var(--ink-soft); padding-right: 10px; white-space: nowrap; }
+  .swatches { display: flex; gap: 5px; margin-top: 6px; }
+  .swatches span { width: 22px; height: 22px; border-radius: 2px; box-shadow: inset 0 0 0 0.5pt rgba(0,0,0,0.15); }
+  .notes .foot {
+    position: absolute; left: 60px; right: 56px; bottom: 44px;
+    padding-top: 9px; border-top: 0.6pt solid var(--rule);
+    font-size: 7.6pt; color: var(--ink-soft); display: flex; justify-content: space-between;
+  }
+  .notes .foot em { color: var(--ink); }
+</style>
+</head>
+<body>
+
+<!-- 1 · Front cover -->
+<section class="page cover-page">{{COVER}}</section>
+
+<!-- 2 · Title page (recto i) -->
+<section class="page recto title-page">
+  <div class="inner">
+    <h1>The Shape<br><em>of</em> Ordinary Days</h1>
+    <div class="rule"></div>
+    <div class="subtitle">A Fictional Memoir of Recovery and Return</div>
+    <div class="author">ALEX MORGAN</div>
+    <div class="orn">{{ORN_TITLE}}</div>
+    <div class="imprint">Élite Publishing</div>
+  </div>
+</section>
+
+<!-- 3 · Credits (verso ii) -->
+<section class="page verso credits">
+  <div class="inner">
+    <p class="book"><em>The Shape of Ordinary Days: A Fictional Memoir of Recovery and Return</em></p>
+    <p>Copyright © 2026 Élite Publishing. All rights reserved.</p>
+    <p>“Alex Morgan” is a demonstration pseudonym created for this sample. It does not refer to any real author.</p>
+    <p>This is a work of fiction. Names, characters, places and events are the product of imagination. Any resemblance to actual persons, living or dead, or to actual events is coincidental.</p>
+    <p>Set in EB Garamond and Cormorant Garamond, both released under the SIL Open Font License. Cover illustration and interior design by Élite Publishing.</p>
+    <p>Demonstration edition. Not for sale.</p>
+    <p class="demo">{{DISCLAIMER}}</p>
+  </div>
+</section>
+
+<!-- 4 · Chapter opening (recto 1) -->
+<section class="page recto chapter-page" data-flow="22">
+  <div class="chapter-head">
+    <div class="num">Chapter One</div>
+    <div class="orn">{{ORN_CHAPTER}}</div>
+    <h2>The Lower Shelf</h2>
+  </div>
+  <div class="block"></div>
+  <div class="folio">1</div>
+</section>
+
+<!-- 5–7 · Text pages -->
+<section class="page verso" data-flow="34">
+  <div class="rh">The Shape of Ordinary Days</div>
+  <div class="block"></div>
+  <div class="folio">2</div>
+</section>
+<section class="page recto" data-flow="34">
+  <div class="rh">The Lower Shelf</div>
+  <div class="block"></div>
+  <div class="folio">3</div>
+</section>
+<section class="page verso" data-flow="34">
+  <div class="rh">The Shape of Ordinary Days</div>
+  <div class="block"></div>
+  <div class="folio">4</div>
+</section>
+
+<!-- 8 · Design notes -->
+<section class="page notes">
+  <div class="eyebrow">Cover and interior design sample</div>
+  <h3>Design notes</h3>
+
+  <h4>The cover</h4>
+  <p>The cover is built from the book’s own material rather than stock imagery. Two mugs stand on a low shelf, handles turned the same way, in the slanted light of a kitchen window: details taken from the first chapter. There are no hospital images or symbols of transformation. The story is about returning to ordinary life, so the cover shows ordinary life, closely observed.</p>
+
+  <h4>Type and color</h4>
+  <p>The title is set in Cormorant Garamond, a display serif with long, calm strokes; the text is EB Garamond, a classic book face made for reading at length. The palette is limited to warm oat, window light, ink and one muted blue, the narrator’s chipped mug, which returns inside the book as the only accent.</p>
+
+  <h4>The interior</h4>
+  <p>Pages are 6 × 9 inches with mirrored margins and a deeper foot. Text is justified on a 15-point baseline with controlled hyphenation, and pages are balanced to avoid widows and orphans. Running heads carry the book title on left-hand pages and the chapter title on right-hand pages, and are dropped on display pages. Chapters open low on the page with small capitals and a reduced shelf motif, so the reader enters each one quietly, as the story does.</p>
+
+  <div class="row">
+    <div>
+      <div class="thumbs">
+        <div><svg width="120" height="180" viewBox="0 0 600 900">{{THUMB_L}}</svg><div class="cap">1.25 in wide</div></div>
+        <div><svg width="58" height="87" viewBox="0 0 600 900">{{THUMB_S}}</svg><div class="cap">0.6 in</div></div>
+      </div>
+      <div class="cap" style="text-align:left;margin-top:6px;max-width:190px">The title holds the top third of the cover in large, high-contrast type, so it stays legible as a small thumbnail.</div>
+    </div>
+    <div style="flex:1">
+      <table>
+        <tr><td>Trim size</td><td>6 × 9 in, portrait</td></tr>
+        <tr><td>Text</td><td>EB Garamond 11/15 pt, justified</td></tr>
+        <tr><td>Display</td><td>Cormorant Garamond</td></tr>
+        <tr><td>Margins</td><td>Inside 0.875 in, outside 0.625 in, top 0.83 in, foot 1.08 in</td></tr>
+        <tr><td>Folios</td><td>Foot, centered; omitted on display pages</td></tr>
+      </table>
+      <div class="swatches" aria-label="Palette">
+        <span style="background:#e9e0d1"></span><span style="background:#f7efde"></span><span style="background:#d8ccb7"></span><span style="background:#46657a"></span><span style="background:#2a2723"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot"><em>{{DISCLAIMER}}</em><span>Élite Publishing</span></div>
+</section>
+
+<script>
+// Flow the chapter text into the fixed text blocks, splitting paragraphs at word boundaries
+// with widow and orphan control (min. 2 lines either side of a page break).
+window.__paginating = true;
+const ITEMS = {{ITEMS}};
+const LH = 20;
+function make(item, cls) {
+  if (item.t === 'break') {
+    const d = document.createElement('div'); d.className = 'break'; d.innerHTML = '<span></span>'; d.setAttribute('aria-hidden', 'true'); return d;
+  }
+  const p = document.createElement('p');
+  p.className = [item.cls, cls].filter(Boolean).join(' ');
+  p.innerHTML = item.html; return p;
+}
+const lines = el => Math.round(el.getBoundingClientRect().height / LH);
+document.fonts.ready.then(() => {
+  const report = [];
+  const queue = ITEMS.slice();
+  for (const page of document.querySelectorAll('[data-flow]')) {
+    const block = page.querySelector('.block');
+    const cap = +page.dataset.flow * LH;
+    const used = () => block.scrollHeight;
+    while (queue.length) {
+      const item = queue[0];
+      const el = make(item);
+      block.appendChild(el);
+      if (used() <= cap) { queue.shift(); continue; }
+      block.removeChild(el);
+      if (item.t === 'break') break;
+      // split the paragraph
+      const words = item.html.split(' ');
+      const total = (() => { block.appendChild(el); el.classList.add('split-head'); const n = lines(el); block.removeChild(el); return n; })();
+      let lo = 0, hi = words.length - 1, best = 0;
+      const tryK = k => { const h = make({ ...item, html: words.slice(0, k).join(' ') }, 'split-head'); block.appendChild(h); const ok = used() <= cap; const n = lines(h); block.removeChild(h); return { ok, n }; };
+      while (lo <= hi) { const mid = (lo + hi) >> 1; if (mid === 0 || tryK(mid).ok) { best = mid; lo = mid + 1; } else hi = mid - 1; }
+      let headLines = best ? tryK(best).n : 0;
+      if (best && total - headLines < 2) { // widow: give one more line to the next page
+        while (best > 0 && tryK(best).n >= headLines) best--;
+        headLines = best ? tryK(best).n : 0;
+      }
+      if (headLines < 2) break; // orphan: move the whole paragraph
+      block.appendChild(make({ ...item, html: words.slice(0, best).join(' ') }, 'split-head'));
+      queue[0] = { t: 'p', cls: 'cont', html: words.slice(best).join(' ') };
+      break;
+    }
+    report.push({ page: page.querySelector('.folio').textContent, linesUsed: Math.round(used() / LH), capacity: +page.dataset.flow });
+  }
+  window.__report = { pages: report, remainingItems: queue.length, lastShown: (document.querySelectorAll('[data-flow] .block p:last-child')[3] || {}).textContent?.slice(-80) };
+  window.__paginating = false;
+});
+</script>
+</body></html>
